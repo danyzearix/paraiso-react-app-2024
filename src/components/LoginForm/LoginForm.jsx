@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import "./LoginForm.css"
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate en lugar de useHistory
+import "./LoginForm.css";
 import { Fragment } from 'react';
 
 const LoginForm = ({ onLoginSuccess }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+
+  // Obtén la función de navegación
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -23,6 +27,9 @@ const LoginForm = ({ onLoginSuccess }) => {
       if (onLoginSuccess) {
         onLoginSuccess();
       }
+
+      // Utiliza navigate para redirigir al usuario a la ruta protegida después del inicio de sesión exitoso
+      navigate('/adminpanel');
     } catch (err) {
       if (err.response && err.response.status === 400) {
         setError('Credenciales no válidas');
@@ -33,34 +40,34 @@ const LoginForm = ({ onLoginSuccess }) => {
   };
 
   return (
-  <Fragment>
-  <div className='formLogin-header'>
-      <h2 className="formLogin-title">Login Intranet</h2>
+    <Fragment>
+      <div className='formLogin-header'>
+        <h2 className="formLogin-title">Login Intranet</h2>
       </div>
-    <form className="formLogin" onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="email">Correo Electrónico:</label>
-        <input
-          type="email"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="password">Contraseña:</label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </div>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <button type="submit">Iniciar Sesión</button>
-    </form>
+      <form className="formLogin" onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="email">Correo Electrónico:</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="password">Contraseña:</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
+        <button type="submit">Iniciar Sesión</button>
+      </form>
     </Fragment>
   );
 };

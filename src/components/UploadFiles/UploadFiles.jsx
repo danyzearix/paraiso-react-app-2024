@@ -25,7 +25,7 @@ const UploadFiles = () => {
     formData.append('file', selectedFile);
 
     try {
-      const response = await axios.post('https://paraiso-api-dev-jajx.1.us-1.fl0.io/api/upload', formData, {
+      const response = await axios.post('https://paraiso-node-api-0c5186e80e32.herokuapp.com/api/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

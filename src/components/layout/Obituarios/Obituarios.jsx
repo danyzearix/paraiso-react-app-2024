@@ -11,7 +11,7 @@ const [obituarios, setObituarios] = useState([]);
 const [hasError, setHasError] = useState(false); // Nuevo estado para errores
 
 useEffect(() => {
-  axios.get('https://paraiso-api-hzcg.4.us-1.fl0.io/api/obituarios')
+  axios.get('https://paraiso-node-api-0c5186e80e32.herokuapp.com/api/obituarios')
     .then(response => {
       setObituarios(response.data);
     })

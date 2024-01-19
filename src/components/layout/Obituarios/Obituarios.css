@@ -40,6 +40,7 @@
     justify-content: center;
     width: 100%;
     background-color: #F3F3F3;
+    padding: 6% 0
 }
   
 .ObiImage{
@@ -93,6 +94,10 @@
 
   .grid{
     grid-template-columns: none;
+  }
+
+  .obituario-grilla{
+    margin: 3%
   }
 
 }

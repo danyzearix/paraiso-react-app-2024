@@ -12,7 +12,7 @@ const [ObituariosGenerales, setObituariosGenerales] = useState([]);
 
 useEffect(() => {
   // Realizar la solicitud a la API (ajusta la URL de la API según tu configuración)
-  axios.get('https://paraiso-api-dev-jajx.1.us-1.fl0.io/api/obituarios')
+  axios.get('https://paraiso-node-api-0c5186e80e32.herokuapp.com/api/obituarios')
     .then(response => {
       setObituariosGenerales(response.data); 
       // Actualizar el estado con los datos de la API
@@ -47,7 +47,7 @@ const formattedDate = bogotaTime.toLocaleString(DateTime.DATE_FULL);
 
       <div className='ObiturariosTitle'>
         <h1 className='genericTtitle'>Servicios del día</h1>
-        <img src="https://elparaisoparquecementerio.com.co/wp-content/uploads/2023/06/Memorial-Service.png" width={52} alt="" />
+        <img src="https://paraisocementerio.a2hosted.com/wp-content/uploads/2024/01/Memorial-Service.png" width={52} alt="" />
     </div>
     
     <div className='ObituariosGeneralesContainer'>
@@ -64,10 +64,6 @@ const formattedDate = bogotaTime.toLocaleString(DateTime.DATE_FULL);
             
           ))}
       </div>
-    </div>
-    
-    <div className="cards-container">
-          <button className='greenButton'>Ver todos</button>
     </div>
   </div>
 </Fragment>

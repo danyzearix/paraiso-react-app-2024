@@ -74,6 +74,7 @@
   @media screen and (max-width: 768px) {
     /* ... Tus otros estilos para el media query ... */
   .video-container{
+    width: 45vh;
     margin-top: 15%;
   }
 

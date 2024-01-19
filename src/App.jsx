@@ -15,6 +15,7 @@ import Footer from './components/layout/Footer/Footer';
 import LoginForm from './components/LoginForm/LoginForm';
 import RegisterForm from './components/RegisterForm/RegisterForm';
 import AdminPanel from "./components/AdminPanel/AdminPanel";
+import SalasVelacion from './components/SalasVelacion/SalasVelacion';
 
 
 const slides = [
@@ -72,6 +73,10 @@ function App() {
     <Route path="/FormularioObituarios" element={<Auth><FormularioObituarios /></Auth>} />
     <Route path="/" element={<Navigate replace to="/login" />} />
     <Route path="/ObituariosGenerales" element={<ObituariosGenerales/>} />
+    <Route path="/salasdevelacion" element={<SalasVelacion/>} />
+
+    
+
   </Routes>
 
   {/* Renderiza el Footer solo si la ruta no es /adminpanel, /FormularioObituarios, /login ni /register */}

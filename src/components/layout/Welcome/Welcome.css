@@ -298,5 +298,25 @@ hr.gradient {
     margin-top: 18%;
   }
 
+  .productImg {
+    display: block;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  .image-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+  }
+
+  .card{
+    width: auto;
+  }
+
 }
 

@@ -53,10 +53,21 @@
     flex-direction: column;
     padding: 30% 0;
     background-color: rgba(0, 0, 0, 0.685);
+    justify-content: center;
+  }
+
+  .boton{
+    padding: 5px 10px;
+    font-size: small;
   }
 
   .banner-column{
     padding: 5% 0;
+
+  .parrafo{
+    text-align: center;
+  }
   }
 
 }
+

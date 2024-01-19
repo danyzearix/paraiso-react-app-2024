@@ -54,9 +54,6 @@ const Countdown = () => {
         <h1>{minutos < 10 ? `0${minutos}` : minutos}</h1>
         <p>Minutos</p>
       </div>
-      <div className="hijo">
-        <button className="ver-mas" style={{ backgroundColor: '#0D6820' }}>Ver calendario</button>
-      </div>
     </div>
 
   );

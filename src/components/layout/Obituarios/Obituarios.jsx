@@ -36,7 +36,7 @@ return (
 
     <div className='ObiturariosTitle'>
       <h1 className='genericTtitle'>OBITUARIOS</h1>
-      <img src="https://elparaisoparquecementerio.com.co/wp-content/uploads/2023/06/Memorial-Service.png" width={52} alt="" />
+      <img src="https://paraisocementerio.a2hosted.com/wp-content/uploads/2024/01/Memorial-Service.png" width={52} alt="" />
     </div>
 
     <div className='ObituariosContainer'>
@@ -44,7 +44,7 @@ return (
         <div className="container-hijo izquierdaObi">
           <img className='ObiImage' src="https://paraisocementerio.a2hosted.com/wp-content/uploads/2024/01/Obituarios.jpg" width={210} height={210} alt="" />
         </div>
-        <div className="grid">
+        <div className="grid obituario-grilla">
           {/* Aquí es donde decidimos qué mostrar según el estado */}
           {hasError || obituarios.length === 0 ? (
             <h3>No hay obituarios disponibles</h3>

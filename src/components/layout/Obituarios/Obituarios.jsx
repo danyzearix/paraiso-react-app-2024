@@ -11,7 +11,10 @@ const Obituarios = () => {
   const [selectedDate, setSelectedDate] = useState(null);
 
   useEffect(() => {
-    axios.get('https://paraiso-node-api-0c5186e80e32.herokuapp.com/api/obituarios')
+    // Obtener la fecha actual si no hay fecha seleccionada
+    const currentDate = selectedDate || DateTime.local().setZone('America/Bogota').toISODate();
+
+    axios.get(`https://paraiso-node-api-0c5186e80e32.herokuapp.com/api/obituarios?fecha=${currentDate}`)
       .then(response => {
         setObituarios(response.data);
       })
@@ -19,30 +22,38 @@ const Obituarios = () => {
         console.error('Error al obtener los datos de la API:', error);
         setHasError(true);
       });
-  }, []);
+  }, [selectedDate]); // El efecto se ejecutará cuando selectedDate cambie
+
+  DateTime.local().setLocale('es');
+  const bogotaTime = DateTime.local().setZone('America/Bogota');
+  const formattedDate = bogotaTime.toLocaleString(DateTime.DATE_FULL);
 
   const handleDateChange = (e) => {
     setSelectedDate(e.target.value);
   };
 
-  const formatFecha = (fecha) => {
-    const date = DateTime.fromISO(fecha);
-    const formattedDate = date.toFormat('yyyy-MM-dd');
-    console.log(formattedDate)
+  // Función para formatear la fecha como DD/MM/AAAA
+  const formatFechaMongo = (fecha) => {
+    let formattedDate = '';
+
+    try {
+      const date = DateTime.fromISO(fecha, { zone: 'utc' });
+      formattedDate = date.setZone('America/Bogota').toFormat('yyyy-MM-dd');
+    } catch (error) {
+      console.error('Error al formatear la fecha:', error);
+    }
+
     return formattedDate;
   };
 
+  // Declaración de filteredObituarios
   const filteredObituarios = obituarios.filter(obituario => {
     if (selectedDate) {
-      const formattedApiDate = formatFecha(obituario.fecha);
+      const formattedApiDate = formatFechaMongo(obituario.fecha);
       return formattedApiDate === selectedDate;
     }
     return true;
   });
-
-  DateTime.local().setLocale('es');
-  const bogotaTime = DateTime.local().setZone('America/Bogota');
-  const formattedDate = bogotaTime.toLocaleString(DateTime.DATE_FULL);
 
   return (
     <Fragment>
@@ -92,7 +103,9 @@ const Obituarios = () => {
         </div>
       </Link>
     </Fragment>
-  )
+  );
 }
 
 export default Obituarios;
+
+

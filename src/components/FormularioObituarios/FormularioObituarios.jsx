@@ -28,7 +28,7 @@ const handleSubmit = async (event) => {
   event.preventDefault();
 
     // Hacer la solicitud POST a la ruta protegida en la API
-    axios.post('https://paraiso-api-dev-jajx.1.us-1.fl0.io/api/obituarios', formData)
+    axios.post('https://paraiso-node-api-0c5186e80e32.herokuapp.com/api/obituarios', formData)
       .then(response => {
         console.log('Obituario guardado:', response.data);
         // Restablecer el formulario después de guardar exitosamente

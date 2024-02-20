@@ -5,8 +5,6 @@ import "./FormularioObituarios.css"
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 
-
-
 const FormularioObituarios = () => {
   const [formData, setFormData] = useState({
     nombre: '',
@@ -16,6 +14,8 @@ const FormularioObituarios = () => {
     fecha: '',
     destino_final: '',
   });
+
+  console.log(formData.fecha)
 
   const handleChange = (event) => {
     const { name, value } = event.target;

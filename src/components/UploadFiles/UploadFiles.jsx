@@ -43,7 +43,7 @@ const UploadFiles = () => {
       console.error('Error al subir el archivo:', error);
       MySwal.fire({
         title: 'Error',
-        text: 'Error al subir el archivo',
+        text: 'Error al subir el archivo: ' + error.response.data.message,
         icon: 'error',
       });
     }
